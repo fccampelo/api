@@ -1,8 +1,14 @@
+import dotenv from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
 
 import routes from "./routes";
 
+dotenv.config({
+  path: process.env.NODE_ENV === "test" ? ".env.test" : ".env",
+});
+
+console.log(process.env.DB_HOST);
 class App {
   constructor() {
     this.server = express();
@@ -22,12 +28,9 @@ class App {
 
   connectDateBase() {
     try {
-      mongoose.connect(
-        "mongodb://user:user123@ds117489.mlab.com:17489/connector",
-        {
-          useNewUrlParser: true,
-        }
-      );
+      mongoose.connect(process.env.DB_HOST, {
+        useNewUrlParser: true,
+      });
     } catch (error) {
       console.log(error);
     }
