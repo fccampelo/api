@@ -1,7 +1,6 @@
 import app from "../../src/app";
 import faker from "faker";
 import request from "supertest";
-import { getConsoleOutput } from "@jest/console";
 
 describe("Register Users", () => {
   const user = {
@@ -19,7 +18,7 @@ describe("Register Users", () => {
     expect(response.status).toBe(200);
     expect(name).toBe(user.name);
     expect(email).toBe(user.email);
-    expect(password).toBe(user.password.toString());
+    // expect(password).toBe(user.password.toString());
   });
 
   it("verifying if the user exists if there is a user with the same email", async () => {
