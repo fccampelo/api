@@ -1,7 +1,7 @@
 import { Router } from "express";
 
 import UserController from "./controllers/User.controller";
-import SessionController from "./controllers/SessionController";
+import SessionController from "./controllers/Session.controller";
 
 // Middleweres
 import middlewares from "./middlewares/index";
