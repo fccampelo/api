@@ -1,5 +1,6 @@
-import User from "../models/User.model";
 import bcrypt from "bcryptjs";
+
+import User from "../models/User.model";
 
 class UserController {
   async create(req, res) {
